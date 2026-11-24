@@ -1,0 +1,47 @@
+{
+  "method": "paired bootstrap over test rows; percentile 95% CI; identical resample indices reused across models and metrics",
+  "n_boot": 2000,
+  "seed": 42,
+  "resamples_skipped_single_class": 0,
+  "B-A": {
+    "delta_roc_auc": {
+      "point": 0.03019680943977132,
+      "ci95": [
+        0.02608477195825771,
+        0.03426655663048662
+      ],
+      "n_valid_resamples": 2000
+    },
+    "delta_pr_auc": {
+      "point": 0.02917629564410079,
+      "ci95": [
+        0.024286032131931503,
+        0.03423888328606934
+      ],
+      "n_valid_resamples": 2000
+    }
+  },
+  "C-B": {
+    "delta_roc_auc": {
+      "point": 0.1815924131528327,
+      "ci95": [
+        0.16547503780013015,
+        0.19765453993900986
+      ],
+      "n_valid_resamples": 2000
+    },
+    "delta_pr_auc": {
+      "point": 0.1523119261740165,
+      "ci95": [
+        0.13002423929331908,
+        0.17374287590369103
+      ],
+      "n_valid_resamples": 2000
+    }
+  },
+  "H1_classification": "H0 rejected, materially relevant",
+  "H2_delta_roc_auc_CB": 0.1815924131528327,
+  "H2_threshold": 0.05,
+  "H2_material": true,
+  "note": "Model C is a leakage diagnostic only and is never an operational model."
+}

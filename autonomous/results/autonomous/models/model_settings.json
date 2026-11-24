@@ -1,0 +1,121 @@
+{
+  "run": "autonomous",
+  "script": "src/my_analysis/autonomous_train_val.py",
+  "agent_model": "GLM-5.3-Flash Free (opencode), OpenCode session",
+  "generated_utc": "2026-11-14T08:35:24+00:00",
+  "plan_version": "1.2 (frozen)",
+  "split_file": "results/splits/temporal_split_v1.json",
+  "split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "raw_dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "rows_filtered_merged_dropped": 0,
+  "seed": 42,
+  "random_elements": {
+    "logistic_regression_random_state": 42,
+    "bootstrap_rng": "numpy.random.default_rng(42)",
+    "TimeSeriesSplit": "deterministic, no randomness"
+  },
+  "models": {
+    "A": {
+      "numeric_features": [
+        "age",
+        "balance"
+      ],
+      "categorical_features": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan"
+      ],
+      "selected_C": 0.01,
+      "C_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "selection": "mean ROC-AUC over 5-fold expanding-window TimeSeriesSplit on train; ties -> first grid value (smaller C)",
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "penalty": "l2",
+      "role": "primary comparison baseline"
+    },
+    "B": {
+      "numeric_features": [
+        "age",
+        "balance",
+        "previous"
+      ],
+      "categorical_features": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_level"
+      ],
+      "selected_C": 0.01,
+      "C_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "selection": "mean ROC-AUC over 5-fold expanding-window TimeSeriesSplit on train; ties -> first grid value (smaller C)",
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "penalty": "l2",
+      "role": "primary model under test (H1)"
+    },
+    "C": {
+      "numeric_features": [
+        "age",
+        "balance",
+        "previous",
+        "duration"
+      ],
+      "categorical_features": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_level"
+      ],
+      "selected_C": 0.01,
+      "C_grid": [
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "selection": "mean ROC-AUC over 5-fold expanding-window TimeSeriesSplit on train; ties -> first grid value (smaller C)",
+      "solver": "lbfgs",
+      "max_iter": 5000,
+      "penalty": "l2",
+      "role": "DIAGNOSTIC - LEAKAGE, never deployable"
+    }
+  },
+  "preprocessing": {
+    "numeric": "StandardScaler (mean/SD from train only)",
+    "categorical": "OneHotEncoder(handle_unknown='ignore'), levels learned from train only, no drop-first",
+    "fitted_on": "training block only, inside sklearn pipelines"
+  },
+  "poutcome_derivation": "pdays==999 -> never_contacted; else documented file label; 5 anomalous rows kept as 'unknown'",
+  "train_prevalence_descriptive": 0.05814137200998515,
+  "validation_prevalence": 0.11502728211178292,
+  "versions": {
+    "python": "3.13.5",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "pyarrow": "26.0.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

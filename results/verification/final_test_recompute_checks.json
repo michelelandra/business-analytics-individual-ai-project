@@ -1,0 +1,717 @@
+{
+ "generated_utc": "2026-11-16T16:39:08+00:00",
+ "script": "results/verification/verify_final_test_recompute.py",
+ "status": "PASS",
+ "tolerance": 1e-06,
+ "n_boot": 2000,
+ "seed": 42,
+ "valid_resamples": 2000,
+ "skipped_single_class": 0,
+ "n_checks": 77,
+ "n_failed": 0,
+ "checks": [
+  {
+   "id": "hash_hypothesis_tests_test.json",
+   "description": "SHA-256 of hypothesis_tests_test.json matches manifest",
+   "reported": "8e2788be011ec63c0eaf94a2caa787ad6269c9bc1f9eaf65905d62ca04f840b5",
+   "recomputed": "8e2788be011ec63c0eaf94a2caa787ad6269c9bc1f9eaf65905d62ca04f840b5",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "hash_test_calibration.csv",
+   "description": "SHA-256 of test_calibration.csv matches manifest",
+   "reported": "506cf277679993e22dad1cc4302573abf3b45b7e2898480df67b2aa24a0965a7",
+   "recomputed": "506cf277679993e22dad1cc4302573abf3b45b7e2898480df67b2aa24a0965a7",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "hash_test_metrics.csv",
+   "description": "SHA-256 of test_metrics.csv matches manifest",
+   "reported": "48e7fa1dcf2c510abd106fced42b1af251426ea902d808f767cfbde5e0a8f0fa",
+   "recomputed": "48e7fa1dcf2c510abd106fced42b1af251426ea902d808f767cfbde5e0a8f0fa",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "hash_test_predictions.csv",
+   "description": "SHA-256 of test_predictions.csv matches manifest",
+   "reported": "2dc5a653e567ebd5821233ee9b72ce984d9d3e2790671b7620d298cbc74b4139",
+   "recomputed": "2dc5a653e567ebd5821233ee9b72ce984d9d3e2790671b7620d298cbc74b4139",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "hash_analysis_script",
+   "description": "SHA-256 of guided_test_evaluate.py matches manifest (definitions unchanged)",
+   "reported": "2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36",
+   "recomputed": "2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "split_canonical_hash",
+   "description": "Canonical hash of saved chronological index arrays equals recorded split hash",
+   "reported": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+   "recomputed": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "split_matches_manifest",
+   "description": "Manifest split_sha256 equals split file canonical hash",
+   "reported": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+   "recomputed": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "dataset_metadata_consistency",
+   "description": "Dataset SHA-256 recorded in test manifest equals split file input_sha256",
+   "reported": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+   "recomputed": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "split_sizes",
+   "description": "Split sizes are train 31,647 / validation 6,781 / test 6,783",
+   "reported": "{'train': 31647, 'validation': 6781, 'test': 6783}",
+   "recomputed": "{'train': 31647, 'validation': 6781, 'test': 6783}",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "n_rows",
+   "description": "Prediction rows equal 6,783",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "n_positive",
+   "description": "Positive outcomes equal 2,669",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "no_nulls",
+   "description": "No missing values in predictions",
+   "reported": false,
+   "recomputed": false,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "row_index_contiguous",
+   "description": "Row indices are contiguous",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "row_alignment_split",
+   "description": "Prediction row_index equals the saved chronological test indices",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "prevalence",
+   "description": "Test prevalence equals 0.39348370927318294",
+   "reported": 0.39348370927318294,
+   "recomputed": 0.39348370927318294,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "model_c_role",
+   "description": "Model C is labelled non-deployable in the frozen metrics",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "model_c_json_note",
+   "description": "Frozen bootstrap JSON labels Model C as a leakage diagnostic",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "A_roc_auc",
+   "description": "Model A ROC-AUC",
+   "reported": 0.5556035709881709,
+   "recomputed": 0.5556035709881709,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_roc_auc_mannwhitney",
+   "description": "Model A ROC-AUC via independent rank formula",
+   "reported": 0.5556035709881709,
+   "recomputed": 0.5556035709881709,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_pr_auc",
+   "description": "Model A average precision",
+   "reported": 0.437868541560834,
+   "recomputed": 0.437868541560834,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_brier",
+   "description": "Model A Brier score",
+   "reported": 0.34269133584152267,
+   "recomputed": 0.34269133584152267,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_brier_sklearn",
+   "description": "Model A Brier via sklearn",
+   "reported": 0.34269133584152267,
+   "recomputed": 0.34269133584152267,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_mean_predicted",
+   "description": "Model A mean predicted probability",
+   "reported": 0.06884271817958906,
+   "recomputed": 0.06884271817958906,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_lift",
+   "description": "Model A lift@10%",
+   "reported": 1.1919846682825095,
+   "recomputed": 1.1919846682825095,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_lift_k",
+   "description": "Model A lift k = floor(0.1n)",
+   "reported": 678.0,
+   "recomputed": 678.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "A_lift_tp",
+   "description": "Model A true positives in top 10%",
+   "reported": 318.0,
+   "recomputed": 318.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "A_lift_precision",
+   "description": "Model A precision@10%",
+   "reported": 0.4690265486725664,
+   "recomputed": 0.4690265486725664,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_lift_recall",
+   "description": "Model A recall@10%",
+   "reported": 0.1191457474709629,
+   "recomputed": 0.1191457474709629,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "A_lift_expected",
+   "description": "Model A expected true positives by chance",
+   "reported": 266.78195488721803,
+   "recomputed": 266.78195488721803,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_roc_auc",
+   "description": "Model B ROC-AUC",
+   "reported": 0.5858003804279422,
+   "recomputed": 0.5858003804279422,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_roc_auc_mannwhitney",
+   "description": "Model B ROC-AUC via independent rank formula",
+   "reported": 0.5858003804279422,
+   "recomputed": 0.5858003804279422,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_pr_auc",
+   "description": "Model B average precision",
+   "reported": 0.4670448372049348,
+   "recomputed": 0.4670448372049348,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_brier",
+   "description": "Model B Brier score",
+   "reported": 0.34242745574504724,
+   "recomputed": 0.34242745574504724,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_brier_sklearn",
+   "description": "Model B Brier via sklearn",
+   "reported": 0.34242745574504724,
+   "recomputed": 0.34242745574504724,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_mean_predicted",
+   "description": "Model B mean predicted probability",
+   "reported": 0.06766018052577288,
+   "recomputed": 0.06766018052577288,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_lift",
+   "description": "Model B lift@10%",
+   "reported": 1.3644101234428725,
+   "recomputed": 1.3644101234428725,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_lift_k",
+   "description": "Model B lift k = floor(0.1n)",
+   "reported": 678.0,
+   "recomputed": 678.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "B_lift_tp",
+   "description": "Model B true positives in top 10%",
+   "reported": 364.0,
+   "recomputed": 364.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "B_lift_precision",
+   "description": "Model B precision@10%",
+   "reported": 0.5368731563421829,
+   "recomputed": 0.5368731563421829,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_lift_recall",
+   "description": "Model B recall@10%",
+   "reported": 0.1363806669164481,
+   "recomputed": 0.1363806669164481,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B_lift_expected",
+   "description": "Model B expected true positives by chance",
+   "reported": 266.78195488721803,
+   "recomputed": 266.78195488721803,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_roc_auc",
+   "description": "Model C ROC-AUC",
+   "reported": 0.767392793580775,
+   "recomputed": 0.767392793580775,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_roc_auc_mannwhitney",
+   "description": "Model C ROC-AUC via independent rank formula",
+   "reported": 0.767392793580775,
+   "recomputed": 0.7673927935807748,
+   "abs_diff": 1.1102230246251565e-16,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_pr_auc",
+   "description": "Model C average precision",
+   "reported": 0.6193567633789513,
+   "recomputed": 0.6193567633789513,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_brier",
+   "description": "Model C Brier score",
+   "reported": 0.3380019092016863,
+   "recomputed": 0.3380019092016863,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_brier_sklearn",
+   "description": "Model C Brier via sklearn",
+   "reported": 0.3380019092016863,
+   "recomputed": 0.3380019092016863,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_mean_predicted",
+   "description": "Model C mean predicted probability",
+   "reported": 0.06297960693204888,
+   "recomputed": 0.06297960693204888,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_lift",
+   "description": "Model C lift@10%",
+   "reported": 1.735499689983654,
+   "recomputed": 1.735499689983654,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_lift_k",
+   "description": "Model C lift k = floor(0.1n)",
+   "reported": 678.0,
+   "recomputed": 678.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "C_lift_tp",
+   "description": "Model C true positives in top 10%",
+   "reported": 463.0,
+   "recomputed": 463.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "C_lift_precision",
+   "description": "Model C precision@10%",
+   "reported": 0.6828908554572272,
+   "recomputed": 0.6828908554572272,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_lift_recall",
+   "description": "Model C recall@10%",
+   "reported": 0.1734732109404271,
+   "recomputed": 0.1734732109404271,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C_lift_expected",
+   "description": "Model C expected true positives by chance",
+   "reported": 266.78195488721803,
+   "recomputed": 266.78195488721803,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_roc_auc_point",
+   "description": "B-A Delta ROC-AUC point estimate",
+   "reported": 0.03019680943977132,
+   "recomputed": 0.03019680943977132,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_roc_auc_ci_lo",
+   "description": "B-A Delta ROC-AUC 95% CI lower bound",
+   "reported": 0.02608477195825771,
+   "recomputed": 0.02608477195825771,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_roc_auc_ci_hi",
+   "description": "B-A Delta ROC-AUC 95% CI upper bound",
+   "reported": 0.03426655663048662,
+   "recomputed": 0.03426655663048662,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_roc_auc_n_valid",
+   "description": "B-A Delta ROC-AUC valid resamples",
+   "reported": 2000.0,
+   "recomputed": 2000.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_pr_auc_point",
+   "description": "B-A Delta average precision point estimate",
+   "reported": 0.02917629564410079,
+   "recomputed": 0.02917629564410079,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_pr_auc_ci_lo",
+   "description": "B-A Delta average precision 95% CI lower bound",
+   "reported": 0.024286032131931503,
+   "recomputed": 0.024286032131931503,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_pr_auc_ci_hi",
+   "description": "B-A Delta average precision 95% CI upper bound",
+   "reported": 0.03423888328606934,
+   "recomputed": 0.03423888328606934,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "B-A_delta_pr_auc_n_valid",
+   "description": "B-A Delta average precision valid resamples",
+   "reported": 2000.0,
+   "recomputed": 2000.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_roc_auc_point",
+   "description": "C-B Delta ROC-AUC point estimate",
+   "reported": 0.1815924131528327,
+   "recomputed": 0.1815924131528327,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_roc_auc_ci_lo",
+   "description": "C-B Delta ROC-AUC 95% CI lower bound",
+   "reported": 0.16547503780013015,
+   "recomputed": 0.16547503780013015,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_roc_auc_ci_hi",
+   "description": "C-B Delta ROC-AUC 95% CI upper bound",
+   "reported": 0.19765453993900986,
+   "recomputed": 0.19765453993900986,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_roc_auc_n_valid",
+   "description": "C-B Delta ROC-AUC valid resamples",
+   "reported": 2000.0,
+   "recomputed": 2000.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_pr_auc_point",
+   "description": "C-B Delta average precision point estimate",
+   "reported": 0.1523119261740165,
+   "recomputed": 0.1523119261740165,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_pr_auc_ci_lo",
+   "description": "C-B Delta average precision 95% CI lower bound",
+   "reported": 0.13002423929331908,
+   "recomputed": 0.13002423929331908,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_pr_auc_ci_hi",
+   "description": "C-B Delta average precision 95% CI upper bound",
+   "reported": 0.17374287590369103,
+   "recomputed": 0.17374287590369103,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "C-B_delta_pr_auc_n_valid",
+   "description": "C-B Delta average precision valid resamples",
+   "reported": 2000.0,
+   "recomputed": 2000.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "boot_skipped",
+   "description": "Reported skipped single-class resamples equal recomputed count",
+   "reported": 0.0,
+   "recomputed": 0.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "boot_n",
+   "description": "Bootstrap resample count is 2,000",
+   "reported": 2000.0,
+   "recomputed": 2000.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "boot_seed",
+   "description": "Bootstrap seed is 42",
+   "reported": 42.0,
+   "recomputed": 42.0,
+   "abs_diff": 0.0,
+   "tolerance": 0.0,
+   "passed": true
+  },
+  {
+   "id": "H1_classification",
+   "description": "H1 classification matches frozen label",
+   "reported": "H0 rejected, materially relevant",
+   "recomputed": "H0 rejected, materially relevant",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "H2_delta",
+   "description": "H2 delta ROC-AUC (C-B) matches frozen value",
+   "reported": 0.1815924131528327,
+   "recomputed": 0.1815924131528327,
+   "abs_diff": 0.0,
+   "tolerance": 1e-06,
+   "passed": true
+  },
+  {
+   "id": "H2_material",
+   "description": "H2 materiality flag matches frozen value",
+   "reported": true,
+   "recomputed": true,
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "no_removed_files",
+   "description": "No protected file was removed",
+   "reported": "[]",
+   "recomputed": "[]",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  },
+  {
+   "id": "no_changed_files",
+   "description": "No protected file changed",
+   "reported": "[]",
+   "recomputed": "[]",
+   "abs_diff": null,
+   "tolerance": null,
+   "passed": true
+  }
+ ],
+ "integrity": {
+  "n_files_before": 112,
+  "n_files_after": 112,
+  "added": [],
+  "removed": [],
+  "changed": []
+ },
+ "model_c": "NON-DEPLOYABLE duration-leakage diagnostic; not an operational model",
+ "scope": "metric-level recomputation from saved predictions; no model fitting, no new predictions",
+ "supplements": "results/verification/final_test_independent_verification.md (human PowerShell verification)"
+}

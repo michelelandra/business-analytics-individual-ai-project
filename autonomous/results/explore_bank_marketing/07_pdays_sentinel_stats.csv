@@ -1,0 +1,13 @@
+﻿metric,value
+rows_total,45211.0
+rows_pdays_eq_999_sentinel,36954.0
+pct_pdays_eq_999_sentinel,81.7367
+rows_pdays_negative,0.0
+rows_actual_days,8257.0
+actual_days_mean,224.5777
+actual_days_std,115.344
+actual_days_min,1.0
+actual_days_q25,133.0
+actual_days_median,194.0
+actual_days_q75,327.0
+actual_days_max,871.0

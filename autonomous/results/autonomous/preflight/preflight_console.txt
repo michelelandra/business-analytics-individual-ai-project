@@ -1,0 +1,4 @@
+﻿[preflight] model A: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model B: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model C: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] ALL CHECKS PASSED. Test mode was NOT executed.

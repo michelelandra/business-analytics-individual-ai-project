@@ -1,0 +1,111 @@
+Independent recomputation — frozen chronological final-test metrics
+Script: results/verification/verify_final_test_recompute.py
+Started (UTC): 2026-11-16T16:39:08+00:00
+
+Model C is a NON-DEPLOYABLE duration-leakage diagnostic.
+
+== 1. Integrity snapshot (before) ==
+Protected files hashed: 112
+
+== 2. Frozen-artifact integrity ==
+[PASS] hash_hypothesis_tests_test.json: SHA-256 of hypothesis_tests_test.json matches manifest — match
+[PASS] hash_test_calibration.csv: SHA-256 of test_calibration.csv matches manifest — match
+[PASS] hash_test_metrics.csv: SHA-256 of test_metrics.csv matches manifest — match
+[PASS] hash_test_predictions.csv: SHA-256 of test_predictions.csv matches manifest — match
+[PASS] hash_analysis_script: SHA-256 of guided_test_evaluate.py matches manifest (definitions unchanged) — match
+
+== 3. Split and dataset metadata (saved files only) ==
+[PASS] split_canonical_hash: Canonical hash of saved chronological index arrays equals recorded split hash — match
+[PASS] split_matches_manifest: Manifest split_sha256 equals split file canonical hash — match
+[PASS] dataset_metadata_consistency: Dataset SHA-256 recorded in test manifest equals split file input_sha256 — match
+[PASS] split_sizes: Split sizes are train 31,647 / validation 6,781 / test 6,783 — match
+(Raw dataset not opened; its SHA-256 is taken from saved metadata, not rehashed.)
+
+== 4. Prediction file structure ==
+[PASS] n_rows: Prediction rows equal 6,783 — reported=6783 recomputed=6783
+[PASS] n_positive: Positive outcomes equal 2,669 — reported=2669 recomputed=2669
+[PASS] no_nulls: No missing values in predictions — reported=0 recomputed=0
+[PASS] row_index_contiguous: Row indices are contiguous — reported=True recomputed=True
+[PASS] row_alignment_split: Prediction row_index equals the saved chronological test indices — reported=True recomputed=True
+[PASS] prevalence: Test prevalence equals 0.39348370927318294 — reported=0.393483709273 recomputed=0.393483709273 |diff|=0.000e+00
+[PASS] model_c_role: Model C is labelled non-deployable in the frozen metrics — reported=True recomputed=True
+[PASS] model_c_json_note: Frozen bootstrap JSON labels Model C as a leakage diagnostic — reported=True recomputed=True
+
+== 5. Point metrics recomputed ==
+[PASS] A_roc_auc: Model A ROC-AUC — reported=0.555603570988 recomputed=0.555603570988 |diff|=0.000e+00
+[PASS] A_roc_auc_mannwhitney: Model A ROC-AUC via independent rank formula — reported=0.555603570988 recomputed=0.555603570988 |diff|=0.000e+00
+[PASS] A_pr_auc: Model A average precision — reported=0.437868541561 recomputed=0.437868541561 |diff|=0.000e+00
+[PASS] A_brier: Model A Brier score — reported=0.342691335842 recomputed=0.342691335842 |diff|=0.000e+00
+[PASS] A_brier_sklearn: Model A Brier via sklearn — reported=0.342691335842 recomputed=0.342691335842 |diff|=0.000e+00
+[PASS] A_mean_predicted: Model A mean predicted probability — reported=0.0688427181796 recomputed=0.0688427181796 |diff|=0.000e+00
+[PASS] A_lift: Model A lift@10% — reported=1.19198466828 recomputed=1.19198466828 |diff|=0.000e+00
+[PASS] A_lift_k: Model A lift k = floor(0.1n) — reported=678 recomputed=678 |diff|=0.000e+00
+[PASS] A_lift_tp: Model A true positives in top 10% — reported=318 recomputed=318 |diff|=0.000e+00
+[PASS] A_lift_precision: Model A precision@10% — reported=0.469026548673 recomputed=0.469026548673 |diff|=0.000e+00
+[PASS] A_lift_recall: Model A recall@10% — reported=0.119145747471 recomputed=0.119145747471 |diff|=0.000e+00
+[PASS] A_lift_expected: Model A expected true positives by chance — reported=266.781954887 recomputed=266.781954887 |diff|=0.000e+00
+[PASS] B_roc_auc: Model B ROC-AUC — reported=0.585800380428 recomputed=0.585800380428 |diff|=0.000e+00
+[PASS] B_roc_auc_mannwhitney: Model B ROC-AUC via independent rank formula — reported=0.585800380428 recomputed=0.585800380428 |diff|=0.000e+00
+[PASS] B_pr_auc: Model B average precision — reported=0.467044837205 recomputed=0.467044837205 |diff|=0.000e+00
+[PASS] B_brier: Model B Brier score — reported=0.342427455745 recomputed=0.342427455745 |diff|=0.000e+00
+[PASS] B_brier_sklearn: Model B Brier via sklearn — reported=0.342427455745 recomputed=0.342427455745 |diff|=0.000e+00
+[PASS] B_mean_predicted: Model B mean predicted probability — reported=0.0676601805258 recomputed=0.0676601805258 |diff|=0.000e+00
+[PASS] B_lift: Model B lift@10% — reported=1.36441012344 recomputed=1.36441012344 |diff|=0.000e+00
+[PASS] B_lift_k: Model B lift k = floor(0.1n) — reported=678 recomputed=678 |diff|=0.000e+00
+[PASS] B_lift_tp: Model B true positives in top 10% — reported=364 recomputed=364 |diff|=0.000e+00
+[PASS] B_lift_precision: Model B precision@10% — reported=0.536873156342 recomputed=0.536873156342 |diff|=0.000e+00
+[PASS] B_lift_recall: Model B recall@10% — reported=0.136380666916 recomputed=0.136380666916 |diff|=0.000e+00
+[PASS] B_lift_expected: Model B expected true positives by chance — reported=266.781954887 recomputed=266.781954887 |diff|=0.000e+00
+[PASS] C_roc_auc: Model C ROC-AUC — reported=0.767392793581 recomputed=0.767392793581 |diff|=0.000e+00
+[PASS] C_roc_auc_mannwhitney: Model C ROC-AUC via independent rank formula — reported=0.767392793581 recomputed=0.767392793581 |diff|=1.110e-16
+[PASS] C_pr_auc: Model C average precision — reported=0.619356763379 recomputed=0.619356763379 |diff|=0.000e+00
+[PASS] C_brier: Model C Brier score — reported=0.338001909202 recomputed=0.338001909202 |diff|=0.000e+00
+[PASS] C_brier_sklearn: Model C Brier via sklearn — reported=0.338001909202 recomputed=0.338001909202 |diff|=0.000e+00
+[PASS] C_mean_predicted: Model C mean predicted probability — reported=0.062979606932 recomputed=0.062979606932 |diff|=0.000e+00
+[PASS] C_lift: Model C lift@10% — reported=1.73549968998 recomputed=1.73549968998 |diff|=0.000e+00
+[PASS] C_lift_k: Model C lift k = floor(0.1n) — reported=678 recomputed=678 |diff|=0.000e+00
+[PASS] C_lift_tp: Model C true positives in top 10% — reported=463 recomputed=463 |diff|=0.000e+00
+[PASS] C_lift_precision: Model C precision@10% — reported=0.682890855457 recomputed=0.682890855457 |diff|=0.000e+00
+[PASS] C_lift_recall: Model C recall@10% — reported=0.17347321094 recomputed=0.17347321094 |diff|=0.000e+00
+[PASS] C_lift_expected: Model C expected true positives by chance — reported=266.781954887 recomputed=266.781954887 |diff|=0.000e+00
+
+== 6. Paired bootstrap (2,000 resamples, seed 42) ==
+Valid resamples: 2000; skipped single-class: 0
+[PASS] B-A_delta_roc_auc_point: B-A Delta ROC-AUC point estimate — reported=0.0301968094398 recomputed=0.0301968094398 |diff|=0.000e+00
+[PASS] B-A_delta_roc_auc_ci_lo: B-A Delta ROC-AUC 95% CI lower bound — reported=0.0260847719583 recomputed=0.0260847719583 |diff|=0.000e+00
+[PASS] B-A_delta_roc_auc_ci_hi: B-A Delta ROC-AUC 95% CI upper bound — reported=0.0342665566305 recomputed=0.0342665566305 |diff|=0.000e+00
+[PASS] B-A_delta_roc_auc_n_valid: B-A Delta ROC-AUC valid resamples — reported=2000 recomputed=2000 |diff|=0.000e+00
+[PASS] B-A_delta_pr_auc_point: B-A Delta average precision point estimate — reported=0.0291762956441 recomputed=0.0291762956441 |diff|=0.000e+00
+[PASS] B-A_delta_pr_auc_ci_lo: B-A Delta average precision 95% CI lower bound — reported=0.0242860321319 recomputed=0.0242860321319 |diff|=0.000e+00
+[PASS] B-A_delta_pr_auc_ci_hi: B-A Delta average precision 95% CI upper bound — reported=0.0342388832861 recomputed=0.0342388832861 |diff|=0.000e+00
+[PASS] B-A_delta_pr_auc_n_valid: B-A Delta average precision valid resamples — reported=2000 recomputed=2000 |diff|=0.000e+00
+[PASS] C-B_delta_roc_auc_point: C-B Delta ROC-AUC point estimate — reported=0.181592413153 recomputed=0.181592413153 |diff|=0.000e+00
+[PASS] C-B_delta_roc_auc_ci_lo: C-B Delta ROC-AUC 95% CI lower bound — reported=0.1654750378 recomputed=0.1654750378 |diff|=0.000e+00
+[PASS] C-B_delta_roc_auc_ci_hi: C-B Delta ROC-AUC 95% CI upper bound — reported=0.197654539939 recomputed=0.197654539939 |diff|=0.000e+00
+[PASS] C-B_delta_roc_auc_n_valid: C-B Delta ROC-AUC valid resamples — reported=2000 recomputed=2000 |diff|=0.000e+00
+[PASS] C-B_delta_pr_auc_point: C-B Delta average precision point estimate — reported=0.152311926174 recomputed=0.152311926174 |diff|=0.000e+00
+[PASS] C-B_delta_pr_auc_ci_lo: C-B Delta average precision 95% CI lower bound — reported=0.130024239293 recomputed=0.130024239293 |diff|=0.000e+00
+[PASS] C-B_delta_pr_auc_ci_hi: C-B Delta average precision 95% CI upper bound — reported=0.173742875904 recomputed=0.173742875904 |diff|=0.000e+00
+[PASS] C-B_delta_pr_auc_n_valid: C-B Delta average precision valid resamples — reported=2000 recomputed=2000 |diff|=0.000e+00
+[PASS] boot_skipped: Reported skipped single-class resamples equal recomputed count — reported=0 recomputed=0 |diff|=0.000e+00
+[PASS] boot_n: Bootstrap resample count is 2,000 — reported=2000 recomputed=2000 |diff|=0.000e+00
+[PASS] boot_seed: Bootstrap seed is 42 — reported=42 recomputed=42 |diff|=0.000e+00
+
+== 7. Frozen classification labels ==
+[PASS] H1_classification: H1 classification matches frozen label — match
+[PASS] H2_delta: H2 delta ROC-AUC (C-B) matches frozen value — reported=0.181592413153 recomputed=0.181592413153 |diff|=0.000e+00
+[PASS] H2_material: H2 materiality flag matches frozen value — reported=True recomputed=True
+
+== 8. Integrity snapshot (after) ==
+[PASS] no_removed_files: No protected file was removed — match
+[PASS] no_changed_files: No protected file changed — match
+Files before: 112; after: 112; added: 0
+
+== RESULT: PASS ==
+Checks: 77; passed: 77; failed: 0
+
+Report: results/verification/final_test_recompute_report.md
+Checks JSON: results/verification/final_test_recompute_checks.json
+Hashes JSON: results/verification/final_test_recompute_hashes.json
+Console: results/verification/final_test_recompute_console.txt
+Finished (UTC): 2026-11-16T16:39:52+00:00

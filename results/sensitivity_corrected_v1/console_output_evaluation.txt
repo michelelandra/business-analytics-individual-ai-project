@@ -1,0 +1,22 @@
+[eval] corrected guided random-split sensitivity evaluation
+[eval] started_utc=2026-11-14T11:25:21+00:00
+[eval] prior_attempts_archived=False
+[integrity] baseline files hashed: 108
+[verify] dataset sha256=0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f
+[verify] chronological split sha256=d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c
+[rows] total=45,211; no filtering, merging or dropping applied
+[target] full prevalence=0.116985 (positives=5,289/45,211)
+[split] artifact=results/sensitivity_corrected_v1/random_split_v1.json
+[split] fingerprint=6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0
+[split] train: n=31,647 negative=27,945 positive=3,702 prevalence=0.116978
+[split] validation: n=6,781 negative=5,988 positive=793 prevalence=0.116944
+[split] test: n=6,783 negative=5,989 positive=794 prevalence=0.117057
+[split] coverage=True disjoint=True chrono_test_overlap=1,022
+[derived] poutcome: never_contacted=36,954, unknown=5
+[fit] corrected random training block only: n=31,647; validation block n=6,781 recorded but NOT loaded for fitting
+[model A] C=0.01 roc_auc=0.648781 ap=0.197967 brier=0.100110 lift@10%=2.1546
+[model B] C=0.01 roc_auc=0.703351 ap=0.323390 brier=0.092144 lift@10%=3.2004
+[model C] C=0.001 roc_auc=0.871345 ap=0.465148 brier=0.082550 lift@10%=4.5360
+[bootstrap] n_boot=2000 seed=42 skipped=0 B-A dAUC=0.054570 CI=[0.04180475776848023, 0.06660025691250887]
+[integrity] files before=108 after=108 unexpected_modification=False
+[eval] complete; artifacts written to results/sensitivity_corrected_v1/

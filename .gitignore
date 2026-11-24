@@ -1,0 +1,90 @@
+# ===========================================================================
+# .gitignore — Bank Term-Deposit Prediction project
+#
+# Goal: keep the repository to source code, documentation, saved evidence,
+# saved models and the documented dataset. Everything machine-specific,
+# secret, cached or archived is excluded.
+#
+# Deliberately NOT ignored (must stay trackable):
+#   uv.lock, pyproject.toml, .python-version
+#   AGENTS.md, plan.md, mistakes.md, README.md, error_analysis.md
+#   src/**, results/**, autonomous/**, dashboard/**, models/*.joblib
+#   data/README.md and data/raw/*.parquet (documented dataset)
+# ===========================================================================
+
+# --- Virtual environments (any directory level) ---------------------------
+.venv/
+**/.venv/
+venv/
+**/venv/
+env/
+**/env/
+ENV/
+.virtualenv/
+**/.virtualenv/
+virtualenv/
+pip-wheel-metadata/
+
+# --- Python bytecode and caches -------------------------------------------
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.ipynb_checkpoints/
+.coverage
+.coverage.*
+htmlcov/
+build/
+dist/
+
+# --- Secrets and local configuration --------------------------------------
+# Never commit credentials. Environment files are local-only.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.toml
+credentials.json
+credentials.yml
+.netrc
+.npmrc
+.pypirc
+
+# --- Archives --------------------------------------------------------------
+# The historical evidence ZIP predates the latest edits and is not the
+# repository/submission ZIP, so no ZIP is tracked.
+*.zip
+
+# --- OS-generated files ----------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# --- Temporary and editor files -------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.orig
+*.rej
+*.swp
+*.swo
+*~
+.~lock.*
+.idea/
+.vscode/

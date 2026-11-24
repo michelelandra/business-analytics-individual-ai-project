@@ -1,0 +1,22 @@
+[corrected] guided random-split sensitivity — SPLIT-ONLY
+[corrected] started_utc=2026-11-14T10:26:23+00:00
+[corrected] model construction/fitting/evaluation: DISABLED
+[integrity] baseline files hashed: 98
+[verify] dataset sha256=0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f
+[verify] chronological split sha256=d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c
+[rows] total=45,211; no filtering, merging or dropping applied
+[target] full prevalence=0.116985 (positives=5,289/45,211)
+[split] sizes: train=31,647 validation=6,781 test=6,783
+[split] train: negative=27,945 positive=3,702 prevalence=0.116978
+[split] validation: negative=5,988 positive=793 prevalence=0.116944
+[split] test: negative=5,989 positive=794 prevalence=0.117057
+[split] coverage=True disjoint=True matches_authorized_reference=True
+[split] canonical_fingerprint=6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0
+[split] chronological_test_overlap=1,022 (expected 1,022)
+[overlap] random_train: chrono_train=22,138 chrono_validation=4,792 chrono_test=4,717
+[overlap] random_validation: chrono_train=4,715 chrono_validation=1,022 chrono_test=1,044
+[overlap] random_test: chrono_train=4,794 chrono_validation=967 chrono_test=1,022
+[overlap] shared with erroneous v1: train=26,036 validation=563 test=3,381
+[audit] no_model_construction_or_evaluation_code=True calls=[] imports=[]
+[integrity] files before=98 after=98 unexpected_modification=False
+[corrected] split-only complete; no model results generated

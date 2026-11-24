@@ -1,0 +1,8 @@
+poutcome code 4 ('nonexistent') observations: 0
+Exact duplicate rows: 0 (kept in the data; not dropped).
+poutcome='unknown' occurs in 36,959 rows, while pdays==999 occurs in 36,954 rows: 5 rows are marked poutcome='unknown' although they WERE previously contacted (pdays!=999). See 07c_poutcome_by_pdays_sentinel.csv. Not corrected.
+education uses only codes [0, 1, 2, 3] (primary, secondary, tertiary, unknown); the codes 4-10 documented in the HF card (basic.4y ... university.degree) are absent. This is consistent with bank-full, not a data error.
+'marital' documents an 'unknown' code (3) but no observation uses it.
+'default' documents an 'unknown' code (2) but no observation uses it.
+'housing' documents an 'unknown' code (2) but no observation uses it.
+'loan' documents an 'unknown' code (2) but no observation uses it.

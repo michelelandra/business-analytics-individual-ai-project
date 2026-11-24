@@ -1,0 +1,28 @@
+{
+  "run": "autonomous",
+  "generated_utc": "2026-11-14T08:35:24+00:00",
+  "agent_model": "GLM-5.3-Flash Free (opencode), OpenCode session",
+  "script": "src/my_analysis/autonomous_train_val.py",
+  "raw_dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "test_set_evaluated": false,
+  "test_labels_read": false,
+  "artifacts_sha256": {
+    "autonomous_run_log.md": "12d8ed671f29137048c9fc2220d8ea55c15482769ecac9bdffc7da3319132816",
+    "logs/console_output.txt": "8fd4f7424dc0912dfb6768082c619147b13bcae9b8d954654dc5a4bde5018500",
+    "metrics/hypothesis_tests_validation.json": "a14713e4067b4edd3972bfe7beb196b88ace044dfda21196629c262c0100ae7e",
+    "metrics/validation_calibration_a.csv": "16a2c151886d066a04c5172ce6a7205cefa35920714d662ee0b6ba7fa77333e4",
+    "metrics/validation_calibration_b.csv": "78224bbf000ea96310e0091e8661fa81379997a3d2f31cb3ac83a0ba39dbf207",
+    "metrics/validation_calibration_c.csv": "fc42bc8116b73c66c93c471f670956ad2211aea3466ad8da22b685582befbdf1",
+    "metrics/validation_metrics.csv": "9a6a7751efa61aed83b2f9de063c1aa32a68779565c5757b6b2f275d17e0e264",
+    "models/coefficients_a.csv": "baa5857b1f0633d793015bc69ba3d153d6bba26c372062b3dd79bf467a5d1ad4",
+    "models/coefficients_b.csv": "076266e99106c9ea82dd701e33845a672fff6dcad178d10c4b5823b9491f8911",
+    "models/coefficients_c.csv": "c5cda5fe65f8b0e4c157800f3f6c103620a240a8882a25f2a292099f471d2f2d",
+    "models/cv_selection.csv": "4e9debef6e7495d893e98363c3a00a734ad7a2d24103f9848d9ff1ce77335c81",
+    "models/model_settings.json": "89a39d0d84266f036edccb3ed41fb1f96579b665aecd3a032e1c13b14df2a86d",
+    "predictions/validation_predictions_a.csv": "13800dcba65a7f3122f721e88187f57f4accb2a75a4f0bd3e75c290ca41d7166",
+    "predictions/validation_predictions_b.csv": "0e4269fca52b2b66b39a22bc8d07ec981cc46881f66c7fb1ad260a5a185191fb",
+    "predictions/validation_predictions_c.csv": "23d1381568ed9bc961f5bc01e1fcfd941447ff76406d5f00e20a2e1328fe573c"
+  },
+  "notes": "manifest excludes its own hash; verification artifacts written later by verify_autonomous.py are hashed there"
+}

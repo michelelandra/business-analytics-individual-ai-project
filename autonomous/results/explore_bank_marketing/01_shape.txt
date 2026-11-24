@@ -1,0 +1,5 @@
+rows: 45211
+columns: 17
+script: src/my_analysis/explore_bank_marketing.py
+input: data/raw/train-00000-of-00001-f26fa3adaf6dfdf2.parquet
+sha256: 0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f

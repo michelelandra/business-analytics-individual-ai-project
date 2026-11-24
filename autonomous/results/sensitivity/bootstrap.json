@@ -1,0 +1,44 @@
+{
+  "evaluation_set": "random test block (random_split_v1)",
+  "n": 6783,
+  "n_boot": 2000,
+  "seed": 42,
+  "method": "paired bootstrap over random-test rows; percentile 95% CI; identical resample indices reused across models and metrics; same definitions as the original autonomous analysis",
+  "comparisons": {
+    "B-A": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.05456992311260822,
+      "delta_roc_auc_ci95": [
+        0.04283250235235887,
+        0.06703009576185592
+      ],
+      "delta_pr_auc_point": 0.12542246399113627,
+      "delta_pr_auc_ci95": [
+        0.09802594936920768,
+        0.1517471067542003
+      ]
+    },
+    "C-B": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.17062852004493534,
+      "delta_roc_auc_ci95": [
+        0.15172829304843535,
+        0.19023242594865694
+      ],
+      "delta_pr_auc_point": 0.16660397759603074,
+      "delta_pr_auc_ci95": [
+        0.1322474917819337,
+        0.20236665477077254
+      ]
+    }
+  },
+  "materiality_threshold_delta_auc": 0.01,
+  "leakage_diagnostic_threshold_delta_auc_C_minus_B": 0.05,
+  "decision_rule_applied_as_reference": {
+    "B-A": "H0 rejected, materially relevant",
+    "note": "POST-TEST reference application of the plan.md 3.2 decision rule to the random split. The pre-registered decision was made on the chronological test block; this does not replace or alter it."
+  },
+  "model_c_note": "Model C is a NON-DEPLOYABLE DURATION-LEAKAGE DIAGNOSTIC in every table."
+}

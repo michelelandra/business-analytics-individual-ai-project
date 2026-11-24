@@ -1,0 +1,18 @@
+﻿variable,dtype,n_nan,pct_nan,unknown_code,unknown_label,n_unknown_code,pct_unknown_code,n_sentinel,sentinel_definition
+age,int64,0,0.0,,,0,,0,
+job,int64,0,0.0,11,unknown,288,0.637,0,
+marital,int64,0,0.0,3,unknown,0,0.0,0,
+education,int64,0,0.0,3,unknown,1857,4.1074,0,
+default,int64,0,0.0,2,unknown,0,0.0,0,
+balance,int64,0,0.0,,,0,,0,
+housing,int64,0,0.0,2,unknown,0,0.0,0,
+loan,int64,0,0.0,2,unknown,0,0.0,0,
+contact,int64,0,0.0,2,unknown,13020,28.7983,0,
+day,int64,0,0.0,,,0,,0,
+month,int64,0,0.0,,,0,,0,
+duration,int64,0,0.0,,,0,,0,
+campaign,int64,0,0.0,,,0,,0,
+pdays,int64,0,0.0,,,0,,36954,999=client was not previously contacted (HF builder replaced -1 with 999)
+previous,int64,0,0.0,,,0,,0,
+poutcome,int64,0,0.0,3,unknown,36959,81.7478,0,
+y,int64,0,0.0,,,0,,0,

@@ -1,0 +1,21 @@
+{
+  "baseline_file_count": 60,
+  "changed_or_touched_existing": [],
+  "missing_existing": [],
+  "added_files": [
+    "results/autonomous/preflight/preflight_checks.json",
+    "results/autonomous/preflight/preflight_console.txt",
+    "results/autonomous/preflight/preflight_report.md",
+    "src/my_analysis/__pycache__/autonomous_test_evaluate.cpython-313.pyc"
+  ],
+  "new_script": [
+    "src/my_analysis/autonomous_test_evaluate.py"
+  ],
+  "plan_md_sha256": "103ea4de7128f680aba8d39279e59f3f00fc7c0c1d2e29929b63743d910532dd",
+  "agents_md_sha256": "eb665aec58acd9d514f372f83fe49246e9a9d331e79c637963e969e9c4b9ffdf",
+  "mistakes_md_sha256": "769bc43585642e564c9dd069a209b737086ddf81db503d8f46224a04f5217e55",
+  "data_readme_sha256": "14ec92290a16c93e644bb4c429b8c681efcb6d2dc1778ced930fa821c0d0a9f6",
+  "split_file_sha256": "127aa5ec323a0f188db0fdf5ec0a53b8f65096466b339ceb0c25f05ac033e372",
+  "raw_dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "test_dir_exists": false
+}

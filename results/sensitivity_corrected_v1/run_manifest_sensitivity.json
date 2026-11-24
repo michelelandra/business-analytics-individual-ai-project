@@ -1,0 +1,293 @@
+{
+  "run_mode": "guided",
+  "stage": "corrected random-split sensitivity \u2014 split-only",
+  "script": "src/my_analysis/guided_random_split_sensitivity_corrected.py",
+  "script_sha256": "afe1a888ce7afbbd58487f0bc32db8bdff53b30eca5764403cba1b9b21db914e",
+  "generated_utc": "2026-11-14T10:26:27+00:00",
+  "plan_reference": "plan.md section 5.5 (secondary sensitivity split)",
+  "analysis_role": "secondary post-test sensitivity analysis; optimistic, not an independent confirmation and not a replacement for the primary chronological evaluation",
+  "status": "split-only; no models constructed, fitted or evaluated",
+  "supersedes": {
+    "erroneous_split_name": "random_split_v1",
+    "erroneous_split_sha256": "e43308ca7a0485fdf114be43372be3c0cc07017897ed766895de47e02f6eca3b",
+    "erroneous_script_sha256": "3806a2b0eeedbfcd480005f754bf345417fc62a228b9d4a91fc9063d0485cc54",
+    "archive": "results/sensitivity_erroneous_v1",
+    "audit_document": "results/audit/guided_random_split_protocol_discrepancy.md",
+    "reason": "The erroneous run implemented a train-first split (test_size=13564 then 6783) instead of the authorized test-first split (test_size=6783 then 6781)."
+  },
+  "authorized_procedure": {
+    "order": "test-first",
+    "steps": [
+      {
+        "step": 1,
+        "call": "remaining_idx, test_idx = train_test_split(np.arange(len(y)), test_size=6783, stratify=y, random_state=42)",
+        "returns": {
+          "remaining_idx": 38428,
+          "test_idx": 6783
+        }
+      },
+      {
+        "step": 2,
+        "call": "train_idx, val_idx = train_test_split(remaining_idx, test_size=6781, stratify=y[remaining_idx], random_state=42)",
+        "returns": {
+          "train_idx": 31647,
+          "val_idx": 6781
+        }
+      }
+    ],
+    "return_order_note": "sklearn train_test_split returns (train, test); the first assignment therefore places the 38,428-row remainder first and the 6,783-row held-out block second."
+  },
+  "implemented_procedure": {
+    "order": "test-first (authorized)",
+    "function": "generate_corrected_split",
+    "steps": [
+      {
+        "step": 1,
+        "call": "remaining_idx, test_idx = train_test_split(np.arange(len(y)), test_size=6783, stratify=y, random_state=42)"
+      },
+      {
+        "step": 2,
+        "call": "train_idx, val_idx = train_test_split(remaining_idx, test_size=6781, stratify=y[remaining_idx], random_state=42)"
+      }
+    ]
+  },
+  "dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "chronological_split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "corrected_split_fingerprint_sha256": "6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0",
+  "reference_fingerprint_sha256": "6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0",
+  "sizes": {
+    "train": 31647,
+    "validation": 6781,
+    "test": 6783
+  },
+  "class_counts": {
+    "train": {
+      "n": 31647,
+      "negative": 27945,
+      "positive": 3702,
+      "prevalence": 0.11697791259835055
+    },
+    "validation": {
+      "n": 6781,
+      "negative": 5988,
+      "positive": 793,
+      "prevalence": 0.11694440348031264
+    },
+    "test": {
+      "n": 6783,
+      "negative": 5989,
+      "positive": 794,
+      "prevalence": 0.11705734925549167
+    }
+  },
+  "conformance_checks": {
+    "sizes_exact": true,
+    "complete_coverage": true,
+    "pairwise_disjoint": true,
+    "positive_counts_exact": true,
+    "negative_counts_exact": true,
+    "chronological_test_overlap_exact": true,
+    "matches_authorized_reference": true,
+    "reference_fingerprint_matches": true,
+    "internally_reproducible": true
+  },
+  "all_conformance_checks_passed": true,
+  "overlap_with_chronological_blocks": {
+    "random_train": {
+      "chronological_train": 22138,
+      "chronological_validation": 4792,
+      "chronological_test": 4717
+    },
+    "random_validation": {
+      "chronological_train": 4715,
+      "chronological_validation": 1022,
+      "chronological_test": 1044
+    },
+    "random_test": {
+      "chronological_train": 4794,
+      "chronological_validation": 967,
+      "chronological_test": 1022
+    }
+  },
+  "overlap_with_erroneous_v1": {
+    "available": true,
+    "path": "results/sensitivity_erroneous_v1/random_split_v1.json",
+    "erroneous_split_sha256": "e43308ca7a0485fdf114be43372be3c0cc07017897ed766895de47e02f6eca3b",
+    "shared_rows": {
+      "train": 26036,
+      "validation": 563,
+      "test": 3381
+    }
+  },
+  "frozen_feature_sets": {
+    "A": {
+      "role": "customer characteristics only",
+      "numeric": [
+        "age",
+        "balance"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan"
+      ]
+    },
+    "B": {
+      "role": "A + previous-campaign information",
+      "numeric": [
+        "age",
+        "balance",
+        "previous"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ]
+    },
+    "C": {
+      "role": "diagnostic - leakage (B + duration); NOT deployable",
+      "numeric": [
+        "age",
+        "balance",
+        "previous",
+        "duration"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ]
+    }
+  },
+  "frozen_hyperparameters": {
+    "A": {
+      "estimator": "LogisticRegression",
+      "C": 0.01,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "class_weight": null,
+      "random_state": 42
+    },
+    "B": {
+      "estimator": "LogisticRegression",
+      "C": 0.01,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "class_weight": null,
+      "random_state": 42
+    },
+    "C": {
+      "estimator": "LogisticRegression",
+      "C": 0.001,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "class_weight": null,
+      "random_state": 42
+    }
+  },
+  "preprocessing_spec": {
+    "numeric": {
+      "transformer": "StandardScaler"
+    },
+    "categorical": {
+      "transformer": "OneHotEncoder",
+      "params": {
+        "handle_unknown": "ignore",
+        "sparse_output": true,
+        "dtype": "float64"
+      }
+    },
+    "remainder": "drop",
+    "fitted_on": "training block only (for a later authorized evaluation)"
+  },
+  "model_results_generated": false,
+  "model_construction_executed": false,
+  "model_fitting_executed": false,
+  "predictions_generated": false,
+  "metrics_computed": false,
+  "bootstrap_executed": false,
+  "evaluation_authorized": false,
+  "human_verification_required": true,
+  "autonomous_comparison": "Not performed by the agent. The human project author will compare the corrected guided index sets against the existing autonomous index sets.",
+  "static_no_model_audit": {
+    "method": "ast.parse; scans actual Call and Import/ImportFrom nodes",
+    "forbidden_call_names_checked": [
+      "ColumnTransformer",
+      "GridSearchCV",
+      "LogisticRegression",
+      "Pipeline",
+      "RandomizedSearchCV",
+      "TimeSeriesSplit",
+      "accuracy_score",
+      "average_precision_score",
+      "brier_score_loss",
+      "confusion_matrix",
+      "f1_score",
+      "fit",
+      "fit_transform",
+      "precision_score",
+      "predict",
+      "predict_log_proba",
+      "predict_proba",
+      "recall_score",
+      "roc_auc_score"
+    ],
+    "forbidden_import_names_checked": [
+      "ColumnTransformer",
+      "GridSearchCV",
+      "LogisticRegression",
+      "Pipeline",
+      "RandomizedSearchCV",
+      "TimeSeriesSplit",
+      "average_precision_score",
+      "brier_score_loss",
+      "roc_auc_score"
+    ],
+    "forbidden_calls_found": [],
+    "forbidden_imports_found": [],
+    "no_model_construction_or_evaluation_code": true,
+    "mode": "split-only",
+    "attempt_1_note": "Attempt 1 used a substring scan over the script source and reported a false failure because the forbidden-token list itself contained the searched strings. This AST-based check replaces it.",
+    "note": "The script preserves frozen feature/hyperparameter constants for a later authorized stage, but contains no model construction, fitting, prediction, metric or bootstrap code."
+  },
+  "preservation": {
+    "n_files_before": 98,
+    "n_files_after": 98,
+    "added_files": [],
+    "removed_files": [],
+    "changed_files": [],
+    "unexpected_modification": false,
+    "baseline_note": "Baseline includes the original erroneous run, the archive, the audit document and all primary artifacts. It excludes only results/sensitivity_corrected_v1, .git, .venv, __pycache__ and data/raw; the raw dataset is verified by SHA-256."
+  },
+  "artifacts": {
+    "conformance_check.json": "c96e1f70d7454e9d9edb8a9b29825150c8854738fc972f81f92b51c6c2694195",
+    "console_output.txt": "6a270808f4156030c0486038eb8014870f37706f71d383041eaf85cb5a0bb4fb",
+    "console_output_attempt1.txt": "efde772928ef5155983a777a13f5c279f84c79dddd5f342d1b257913cd8336de",
+    "execution_log.md": "a6a26efdbc7669398dd3b47788d03c8906a21ad195ac2e870474797ca4cca41a",
+    "prompt_log.md": "e0b05fcbd7cab356f17ca4ff98ec1eade6543719befdc1a15a8870937b850fbc",
+    "random_split_v1.json": "9b7938bbb079d4782ce54831a64c16e8b873ad7a734cefcf3fbcb190e97a9885",
+    "random_split_v1.md": "e30a9e5a8da9fc083a9b81ffdd84d01344f9753d386d852df38e23bce15dccd7"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

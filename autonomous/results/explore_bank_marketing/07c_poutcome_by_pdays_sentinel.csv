@@ -1,0 +1,5 @@
+﻿poutcome_label,pdays!=999,pdays=999 (not previously contacted)
+failure,4901,0
+other,1840,0
+success,1511,0
+unknown,5,36954

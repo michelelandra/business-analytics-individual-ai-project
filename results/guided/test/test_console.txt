@@ -1,0 +1,31 @@
+Command: uv run python -m my_analysis.guided_test_evaluate --mode test --confirm-test-evaluation GUIDED_TEST_AUTHORISED_BY_OWNER
+Working directory: C:\Users\alber\OneDrive\Documenti\my-analysis
+Date (UTC): 2026-11-14
+Stage: ONE-SHOT gated final test evaluation (explicitly authorised by the owner)
+Script: src/my_analysis/guided_test_evaluate.py
+Script SHA-256: 2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36
+Exit code: 0
+
+--- console output ---
+C:\Users\alber\OneDrive\Documenti\my-analysis\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:1381: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None.
+  warnings.warn(
+C:\Users\alber\OneDrive\Documenti\my-analysis\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:1381: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None.
+  warnings.warn(
+C:\Users\alber\OneDrive\Documenti\my-analysis\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:1381: FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None.
+  warnings.warn(
+[preflight] model A: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model B: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model C: C=0.001 max|diff|=0.000e+00 pass=True
+[preflight] ALL CHECKS PASSED. Test mode was NOT executed.
+[test] one-shot evaluation complete; artifacts written to results/guided/test/
+
+--- notes ---
+- This file records the single execution of the gated test mode. The test
+  block was opened exactly once, only after the internal fail-closed
+  preflight reproduction passed.
+- Hyperparameters were the frozen selected values (A=0.01, B=0.01, C=0.001);
+  no search, no re-selection, no change to preprocessing or settings.
+- The three FutureWarning lines are the same sklearn 1.9.1 deprecation
+  warning about the explicit penalty='l2' argument already documented in
+  results/guided/run_warnings.txt and in the preflight report; the model
+  settings were not modified in response.

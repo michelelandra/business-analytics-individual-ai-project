@@ -1,0 +1,40 @@
+{
+  "evaluation_set": "validation (frozen split [31647, 38428))",
+  "n": 6781,
+  "n_boot": 2000,
+  "seed": 42,
+  "method": "paired bootstrap over validation rows; percentile 95% CI; identical resample indices reused across models and metrics",
+  "test_set_note": "plan.md 3.1-3.2 decision procedure applies to the TEST set and is NOT executed in this run; all values here are validation evidence only",
+  "comparisons": {
+    "B-A": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.019195091416387866,
+      "delta_roc_auc_ci95": [
+        0.013432501656046775,
+        0.02478706813032066
+      ],
+      "delta_pr_auc_point": 0.02039339140049687,
+      "delta_pr_auc_ci95": [
+        0.014212005158551826,
+        0.026576892308893218
+      ]
+    },
+    "C-B": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.22151169249569513,
+      "delta_roc_auc_ci95": [
+        0.19828602980861249,
+        0.24481579379297413
+      ],
+      "delta_pr_auc_point": 0.25982868837400075,
+      "delta_pr_auc_ci95": [
+        0.2168623284602887,
+        0.30250387971279824
+      ]
+    }
+  },
+  "materiality_threshold_delta_auc": 0.01,
+  "leakage_diagnostic_threshold_delta_auc_C_minus_B": 0.05
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "check": "prediction row_index == frozen validation indices (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "prediction row_index == frozen validation indices (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "prediction row_index == frozen validation indices (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "y in prediction files == raw parquet y at validation indices",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation roc_auc (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation pr_auc (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation brier (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation lift_top10pct (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation prevalence_baseline (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation n_top_decile (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation roc_auc (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation pr_auc (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation brier (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation lift_top10pct (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation prevalence_baseline (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation n_top_decile (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation roc_auc (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation pr_auc (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation brier (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation lift_top10pct (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation prevalence_baseline (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent recomputation n_top_decile (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent bootstrap B-A dROC_AUC (point + CI)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent bootstrap B-A dPR_AUC (point + CI)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent bootstrap C-B dROC_AUC (point + CI)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent bootstrap C-B dPR_AUC (point + CI)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent calibration recomputation (model A)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent calibration recomputation (model B)",
+    "status": "PASS"
+  },
+  {
+    "check": "independent calibration recomputation (model C)",
+    "status": "PASS"
+  },
+  {
+    "check": "split file canonical hash unchanged",
+    "status": "PASS"
+  },
+  {
+    "check": "raw dataset hash unchanged",
+    "status": "PASS"
+  },
+  {
+    "check": "test block size 6,783; NOT evaluated (no metric involving test rows computed anywhere in this verification)",
+    "status": "PASS"
+  }
+]

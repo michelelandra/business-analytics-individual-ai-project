@@ -1,0 +1,159 @@
+{
+  "mode": "split-only",
+  "status": "corrected split generated and verified; no model results",
+  "authorized_procedure": {
+    "order": "test-first",
+    "steps": [
+      {
+        "step": 1,
+        "call": "remaining_idx, test_idx = train_test_split(np.arange(len(y)), test_size=6783, stratify=y, random_state=42)",
+        "returns": {
+          "remaining_idx": 38428,
+          "test_idx": 6783
+        }
+      },
+      {
+        "step": 2,
+        "call": "train_idx, val_idx = train_test_split(remaining_idx, test_size=6781, stratify=y[remaining_idx], random_state=42)",
+        "returns": {
+          "train_idx": 31647,
+          "val_idx": 6781
+        }
+      }
+    ],
+    "return_order_note": "sklearn train_test_split returns (train, test); the first assignment therefore places the 38,428-row remainder first and the 6,783-row held-out block second."
+  },
+  "implemented_procedure": {
+    "order": "test-first (authorized)",
+    "function": "generate_corrected_split",
+    "steps": [
+      {
+        "step": 1,
+        "call": "remaining_idx, test_idx = train_test_split(np.arange(len(y)), test_size=6783, stratify=y, random_state=42)"
+      },
+      {
+        "step": 2,
+        "call": "train_idx, val_idx = train_test_split(remaining_idx, test_size=6781, stratify=y[remaining_idx], random_state=42)"
+      }
+    ]
+  },
+  "checks": {
+    "sizes_exact": true,
+    "complete_coverage": true,
+    "pairwise_disjoint": true,
+    "positive_counts_exact": true,
+    "negative_counts_exact": true,
+    "chronological_test_overlap_exact": true,
+    "matches_authorized_reference": true,
+    "reference_fingerprint_matches": true,
+    "internally_reproducible": true
+  },
+  "all_checks_passed": true,
+  "expected_vs_actual": {
+    "sizes": {
+      "expected": {
+        "train": 31647,
+        "validation": 6781,
+        "test": 6783
+      },
+      "actual": {
+        "train": 31647,
+        "validation": 6781,
+        "test": 6783
+      }
+    },
+    "positive_counts": {
+      "expected": {
+        "train": 3702,
+        "validation": 793,
+        "test": 794
+      },
+      "actual": {
+        "train": 3702,
+        "validation": 793,
+        "test": 794
+      }
+    },
+    "negative_counts": {
+      "expected": {
+        "train": 27945,
+        "validation": 5988,
+        "test": 5989
+      },
+      "actual": {
+        "train": 27945,
+        "validation": 5988,
+        "test": 5989
+      }
+    },
+    "chronological_test_overlap": {
+      "expected": 1022,
+      "actual": 1022
+    }
+  },
+  "reference_comparison": {
+    "reference_function": "authorized_reference_split",
+    "exact_index_set_equality": {
+      "train": true,
+      "validation": true,
+      "test": true
+    },
+    "all_blocks_equal": true,
+    "corrected_fingerprint_sha256": "6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0",
+    "reference_fingerprint_sha256": "6975172cf5e2688d8e0c2e887e5242257a984ff7e262b590ce550498a210dfa0"
+  },
+  "overlap_with_erroneous_v1": {
+    "available": true,
+    "path": "results/sensitivity_erroneous_v1/random_split_v1.json",
+    "erroneous_split_sha256": "e43308ca7a0485fdf114be43372be3c0cc07017897ed766895de47e02f6eca3b",
+    "shared_rows": {
+      "train": 26036,
+      "validation": 563,
+      "test": 3381
+    }
+  },
+  "static_no_model_audit": {
+    "method": "ast.parse; scans actual Call and Import/ImportFrom nodes",
+    "forbidden_call_names_checked": [
+      "ColumnTransformer",
+      "GridSearchCV",
+      "LogisticRegression",
+      "Pipeline",
+      "RandomizedSearchCV",
+      "TimeSeriesSplit",
+      "accuracy_score",
+      "average_precision_score",
+      "brier_score_loss",
+      "confusion_matrix",
+      "f1_score",
+      "fit",
+      "fit_transform",
+      "precision_score",
+      "predict",
+      "predict_log_proba",
+      "predict_proba",
+      "recall_score",
+      "roc_auc_score"
+    ],
+    "forbidden_import_names_checked": [
+      "ColumnTransformer",
+      "GridSearchCV",
+      "LogisticRegression",
+      "Pipeline",
+      "RandomizedSearchCV",
+      "TimeSeriesSplit",
+      "average_precision_score",
+      "brier_score_loss",
+      "roc_auc_score"
+    ],
+    "forbidden_calls_found": [],
+    "forbidden_imports_found": [],
+    "no_model_construction_or_evaluation_code": true,
+    "mode": "split-only",
+    "attempt_1_note": "Attempt 1 used a substring scan over the script source and reported a false failure because the forbidden-token list itself contained the searched strings. This AST-based check replaces it.",
+    "note": "The script preserves frozen feature/hyperparameter constants for a later authorized stage, but contains no model construction, fitting, prediction, metric or bootstrap code."
+  },
+  "model_results_generated": false,
+  "human_verification_required": true,
+  "autonomous_comparison": "Not performed by the agent. The human project author will compare the corrected guided index sets against the existing autonomous index sets."
+}

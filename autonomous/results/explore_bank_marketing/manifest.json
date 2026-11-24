@@ -1,0 +1,24 @@
+{
+  "script": "src/my_analysis/explore_bank_marketing.py",
+  "input_file": "data/raw/train-00000-of-00001-f26fa3adaf6dfdf2.parquet",
+  "input_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "input_size_bytes": 692795,
+  "n_rows": 45211,
+  "n_columns": 17,
+  "random_seed": 42,
+  "generated_utc": "2026-11-13T18:11:37+00:00",
+  "python": "3.13.5",
+  "pandas": "3.1.1",
+  "pyarrow": "26.0.1",
+  "numpy": "2.5.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sources": {
+    "uci_dataset": "https://archive.ics.uci.edu/dataset/222/bank+marketing",
+    "hf_card": "https://huggingface.co/datasets/cestwc/bank-marketing",
+    "hf_info_api": "https://datasets-server.huggingface.co/info?dataset=cestwc/bank-marketing",
+    "paper_doi": "https://doi.org/10.24432/C5K306",
+    "accessed_utc": "2026-11-13"
+  },
+  "filters_applied": [],
+  "rows_dropped": 0
+}

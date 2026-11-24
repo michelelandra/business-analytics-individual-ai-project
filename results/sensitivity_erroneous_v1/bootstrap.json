@@ -1,0 +1,44 @@
+{
+  "method": "paired bootstrap over random-test rows; percentile 95% CI; identical resample indices reused across models and metrics",
+  "n_boot": 2000,
+  "seed": 42,
+  "resamples_skipped_single_class": 0,
+  "B-A": {
+    "delta_roc_auc": {
+      "point": 0.048582455744852204,
+      "ci95": [
+        0.0361057602074326,
+        0.06136152195907213
+      ],
+      "n_valid_resamples": 2000
+    },
+    "delta_pr_auc": {
+      "point": 0.1435967045870166,
+      "ci95": [
+        0.11403471493637887,
+        0.17290330463470358
+      ],
+      "n_valid_resamples": 2000
+    }
+  },
+  "C-B": {
+    "delta_roc_auc": {
+      "point": 0.1392966239953769,
+      "ci95": [
+        0.11944154295699005,
+        0.16008347036631365
+      ],
+      "n_valid_resamples": 2000
+    },
+    "delta_pr_auc": {
+      "point": 0.08249710804174376,
+      "ci95": [
+        0.041390243713304554,
+        0.1252564619257341
+      ],
+      "n_valid_resamples": 2000
+    }
+  },
+  "interpretation": "Descriptive sensitivity interval only. This is not a new pre-registered hypothesis test and does not replace the primary chronological evaluation.",
+  "note": "Model C is a leakage diagnostic only and is never an operational model."
+}

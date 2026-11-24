@@ -1,0 +1,5 @@
+﻿check,rows
+pdays==999 and previous==0,36954
+pdays==999 and previous>0,0
+pdays!=999 and previous==0,0
+pdays!=999 and previous>=1,8257

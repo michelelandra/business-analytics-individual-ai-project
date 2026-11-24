@@ -1,0 +1,249 @@
+{
+  "run_mode": "guided",
+  "stage": "random-split sensitivity analysis (secondary, post-test)",
+  "script": "src/my_analysis/guided_random_split_sensitivity.py",
+  "script_sha256": "3806a2b0eeedbfcd480005f754bf345417fc62a228b9d4a91fc9063d0485cc54",
+  "generated_utc": "2026-11-14T09:57:01+00:00",
+  "plan_reference": "plan.md section 5.5 (secondary sensitivity split)",
+  "analysis_role": "secondary post-test sensitivity analysis; not an independent confirmation and not a replacement for the primary chronological evaluation",
+  "dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "chronological_split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "random_split_sha256": "e43308ca7a0485fdf114be43372be3c0cc07017897ed766895de47e02f6eca3b",
+  "random_split_sizes": {
+    "train": 31647,
+    "validation": 6781,
+    "test": 6783
+  },
+  "random_split_class_counts": {
+    "train": {
+      "n": 31647,
+      "negative": 27945,
+      "positive": 3702,
+      "prevalence": 0.11697791259835055
+    },
+    "validation": {
+      "n": 6781,
+      "negative": 5988,
+      "positive": 793,
+      "prevalence": 0.11694440348031264
+    },
+    "test": {
+      "n": 6783,
+      "negative": 5989,
+      "positive": 794,
+      "prevalence": 0.11705734925549167
+    }
+  },
+  "random_split_verification": {
+    "complete_coverage": true,
+    "pairwise_disjoint": true,
+    "reproducible_from_seed": true,
+    "coverage_n": 45211,
+    "coverage_min_index": 0,
+    "coverage_max_index": 45210
+  },
+  "overlap_with_chronological_blocks": {
+    "random_train": {
+      "chronological_train": 22121,
+      "chronological_validation": 4800,
+      "chronological_test": 4726
+    },
+    "random_validation": {
+      "chronological_train": 4758,
+      "chronological_validation": 974,
+      "chronological_test": 1049
+    },
+    "random_test": {
+      "chronological_train": 4768,
+      "chronological_validation": 1007,
+      "chronological_test": 1008
+    }
+  },
+  "feature_sets": {
+    "A": {
+      "role": "customer characteristics only",
+      "numeric": [
+        "age",
+        "balance"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan"
+      ]
+    },
+    "B": {
+      "role": "A + previous-campaign information",
+      "numeric": [
+        "age",
+        "balance",
+        "previous"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ]
+    },
+    "C": {
+      "role": "diagnostic - leakage (B + duration); NOT deployable",
+      "numeric": [
+        "age",
+        "balance",
+        "previous",
+        "duration"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ]
+    }
+  },
+  "preprocessing": {
+    "numeric": {
+      "transformer": "StandardScaler",
+      "params": {
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "categorical": {
+      "transformer": "OneHotEncoder",
+      "params": {
+        "handle_unknown": "ignore",
+        "sparse_output": true,
+        "dtype": "float64"
+      }
+    },
+    "remainder": "drop",
+    "fitted_on": "random training block only"
+  },
+  "preprocessing_spec_sha256": "6e199079087fc7e92f97ef89c440be4c24bea17e8ed37d05b1706c8125a445aa",
+  "model_spec": {
+    "estimator": "LogisticRegression",
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "class_weight": null,
+    "random_state": 42,
+    "C": {
+      "A": 0.01,
+      "B": 0.01,
+      "C": 0.001
+    },
+    "selection": "frozen from the primary guided run; no re-selection"
+  },
+  "model_spec_sha256": "9cfc27fc0b112e01733fa3489ccfd3399a236e8ac85e53195ffbff0f0e809f54",
+  "selected_C": {
+    "A": 0.01,
+    "B": 0.01,
+    "C": 0.001
+  },
+  "max_iter": 1000,
+  "seed": 42,
+  "n_boot": 2000,
+  "lift_fraction": 0.1,
+  "fitted_on": "random training block only",
+  "random_validation_used_for_fitting_or_tuning": false,
+  "random_test_evaluated": true,
+  "random_test_labels_used_for": "evaluation only",
+  "random_test_labels_used_for_fitting_or_tuning": false,
+  "model_calls": [
+    {
+      "model": "A",
+      "estimator": "LogisticRegression",
+      "C": 0.01,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 42,
+      "n_train": 31647,
+      "n_test": 6783,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    },
+    {
+      "model": "B",
+      "estimator": "LogisticRegression",
+      "C": 0.01,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 42,
+      "n_train": 31647,
+      "n_test": 6783,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    },
+    {
+      "model": "C",
+      "estimator": "LogisticRegression",
+      "C": 0.001,
+      "penalty": "l2",
+      "solver": "lbfgs",
+      "max_iter": 1000,
+      "random_state": 42,
+      "n_train": 31647,
+      "n_test": 6783,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    }
+  ],
+  "static_audit": {
+    "no_hyperparameter_search": true,
+    "forbidden_names_found": [],
+    "feature_sets_match_frozen_lists": true,
+    "selected_C_match_frozen_values": true,
+    "selected_C": {
+      "A": 0.01,
+      "B": 0.01,
+      "C": 0.001
+    },
+    "max_iter": 1000,
+    "seed": 42,
+    "note": "Pipelines are constructed with fixed constants. No GridSearchCV, TimeSeriesSplit or C grid is used."
+  },
+  "preservation": {
+    "n_files_before": 69,
+    "n_files_after": 69,
+    "added_files": [],
+    "removed_files": [],
+    "changed_files": [],
+    "unexpected_modification": false,
+    "baseline_note": "Baseline excludes .git, .venv, __pycache__, data/raw and results/sensitivity. The raw dataset is verified by its recorded SHA-256."
+  },
+  "artifacts": {
+    "bootstrap.json": "00c0f95c235171d2728a015ccf4749c518008c1b1a628d643310a06061a3a258",
+    "calibration.csv": "db27b8d13d0760a1c416b1b65c3b64a0a017b3a034017625fc4983e25e9867b5",
+    "console_output.txt": "af66c1e9b43c567c4e00d445444faac9ab09e3d6ad66ee43b3e67b48553298ce",
+    "execution_log.md": "be25978a0eb6b3e3a3249cb433b39225d4eca4175c912cd228188c455e21a421",
+    "metrics.csv": "d21b92849486aa9c3e5d1bdf2bfd009b7d62bb5567fad26b96ef0d9ffddffa15",
+    "predictions.csv": "8d93040664f65109f0ec2de8a1e201c9f3adfdf0b7ab5f6f40732ebb8a1bcc06",
+    "prompt_log.md": "281b64a94a2510fd943c2cfac75fd40aa6fadc2cb84cb4ffd02d1f11b793f9c8",
+    "random_split_v1.json": "e8ee54fddb360203a32474710da95a0829ef970bd942af8065d4c2760345d64f",
+    "random_split_v1.md": "143e391ed293a4d53d34cb9b46c7b5d009a46e5c6aed94327a2e1778056d016e",
+    "report.md": "c741a799b3cd49bd21ebe8409c426a5bcbec35aa60a4cb5d12c3cd0f8aad2904"
+  },
+  "environment": {
+    "python": "3.13.5",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

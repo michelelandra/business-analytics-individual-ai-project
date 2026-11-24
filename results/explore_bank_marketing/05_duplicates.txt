@@ -1,0 +1,5 @@
+exact duplicate rows (all 17 columns): 0
+duplicate rows ignoring target y: 0
+rows before: 45,211
+rows after: 45,211 (nothing dropped)
+script: src/my_analysis/explore_bank_marketing.py

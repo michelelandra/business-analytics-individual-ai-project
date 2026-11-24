@@ -1,0 +1,9 @@
+﻿check,expected,observed,status
+"row count matches UCI bank-full (45,211)",45211,45211,PASS
+column count (16 features + y),17,17,PASS
+all observed categorical codes documented in HF card,0 undocumented codes,0 undocumented,PASS
+"target y has only documented codes {0,1}","{0,1}","[0, 1]",PASS
+target y has no missing values,0 NaN,0 NaN,PASS
+no NaN cells (UCI declares no missing values),0,0,PASS
+duration is non-negative,min >= 0,min=0,PASS
+campaign >= 1,min >= 1,min=1,PASS

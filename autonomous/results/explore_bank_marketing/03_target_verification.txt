@@ -1,0 +1,15 @@
+Target variable: y
+
+Documented meaning (UCI): 'has the client subscribed a term deposit?'
+Documented encoding (HF ClassLabel names): 0='no', 1='yes'
+Source: https://huggingface.co/datasets/cestwc/bank-marketing
+Source: https://archive.ics.uci.edu/dataset/222/bank+marketing
+
+Observed codes: [0, 1]
+Rows: 45,211
+  0 (no): 39,922 (88.3015%)
+  1 (yes): 5,289 (11.6985%)
+
+Verification: observed codes are a subset of the documented set, and the
+ClassLabel order in the HF card is ['no','yes'], so 0=no and 1=yes.
+No assumption beyond the documented mapping was used.

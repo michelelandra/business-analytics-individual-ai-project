@@ -1,0 +1,90 @@
+{
+  "mode": "preflight",
+  "stage": "preparation and reproduction only",
+  "test_evaluation_executed": false,
+  "test_labels_read": false,
+  "generated_utc": "2026-11-14T09:29:39+00:00",
+  "script": "src/my_analysis/guided_test_evaluate.py",
+  "script_sha256": "2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36",
+  "plan_version": "1.2 (frozen)",
+  "dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "split_plan_version": "1.1",
+  "tolerance": 1e-12,
+  "overall_pass": true,
+  "models": {
+    "A": {
+      "selected_C": 0.01,
+      "n_train": 31647,
+      "n_validation": 6781,
+      "max_abs_prediction_diff": 0.0,
+      "n_rows_diff_gt_tol": 0,
+      "pass": true,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    },
+    "B": {
+      "selected_C": 0.01,
+      "n_train": 31647,
+      "n_validation": 6781,
+      "max_abs_prediction_diff": 0.0,
+      "n_rows_diff_gt_tol": 0,
+      "pass": true,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    },
+    "C": {
+      "selected_C": 0.001,
+      "n_train": 31647,
+      "n_validation": 6781,
+      "max_abs_prediction_diff": 0.0,
+      "n_rows_diff_gt_tol": 0,
+      "pass": true,
+      "warnings": [
+        "FutureWarning: 'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+      ]
+    }
+  },
+  "row_group_policy": {
+    "parquet_num_row_groups": 46,
+    "row_group_size": 1000,
+    "feature_row_groups_read": [
+      0,
+      38
+    ],
+    "feature_rows_physically_read": 39000,
+    "label_row_groups_read": [
+      0,
+      31
+    ],
+    "label_rows_physically_read": 32000,
+    "label_rows_used": 31647,
+    "label_max_row_index_read": 31999,
+    "test_block_start": 38428,
+    "test_labels_read": false,
+    "note": "Validation FEATURES require row group 38 (rows 38,000-38,999), which physically contains 572 test feature rows. They are sliced away before use. No test LABEL is read: the y column is read only from row groups 0-31 (rows 0-31,999), entirely before 38,428."
+  },
+  "static_audit": {
+    "no_hyperparameter_search": true,
+    "forbidden_names_found": [],
+    "feature_sets_match_frozen_lists": true,
+    "selected_C_match_frozen_values": true,
+    "selected_C": {
+      "A": 0.01,
+      "B": 0.01,
+      "C": 0.001
+    },
+    "max_iter": 1000,
+    "seed": 42,
+    "note": "The script constructs pipelines with fixed constants. It imports no GridSearchCV/TimeSeriesSplit and performs no model selection."
+  },
+  "environment": {
+    "python": "3.13.5",
+    "scikit_learn": "1.9.1",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "platform": "Windows-11-10.0.26200-SP0"
+  }
+}

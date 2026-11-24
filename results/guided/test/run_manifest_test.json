@@ -1,0 +1,29 @@
+{
+  "run_mode": "guided",
+  "stage": "final test evaluation (one-shot)",
+  "script": "src/my_analysis/guided_test_evaluate.py",
+  "script_sha256": "2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36",
+  "generated_utc": "2026-11-14T09:30:19+00:00",
+  "plan_version": "1.2 (frozen)",
+  "dataset_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "split_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "selected_C": {
+    "A": 0.01,
+    "B": 0.01,
+    "C": 0.001
+  },
+  "max_iter": 1000,
+  "seed": 42,
+  "test_rows_used": 6783,
+  "test_evaluated": true,
+  "test_labels_read": true,
+  "test_labels_used_for": "evaluation only",
+  "test_labels_used_for_fitting_or_tuning": false,
+  "disclosure": "Test labels were read only at this gated stage, after the preflight reproduction passed. The earlier autonomous run's claims that test labels were never read were incorrect; see the comparison audit. No test label influenced fitting, feature choice or C selection.",
+  "artifacts": {
+    "hypothesis_tests_test.json": "8e2788be011ec63c0eaf94a2caa787ad6269c9bc1f9eaf65905d62ca04f840b5",
+    "test_calibration.csv": "506cf277679993e22dad1cc4302573abf3b45b7e2898480df67b2aa24a0965a7",
+    "test_metrics.csv": "48e7fa1dcf2c510abd106fced42b1af251426ea902d808f767cfbde5e0a8f0fa",
+    "test_predictions.csv": "2dc5a653e567ebd5821233ee9b72ce984d9d3e2790671b7620d298cbc74b4139"
+  }
+}

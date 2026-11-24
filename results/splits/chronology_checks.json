@@ -1,0 +1,88 @@
+{
+  "script": "src/my_analysis/validate_chronology.py",
+  "input_file": "data/raw/train-00000-of-00001-f26fa3adaf6dfdf2.parquet",
+  "input_sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+  "generated_utc": "2026-11-13T19:01:35+00:00",
+  "python": "3.13.5",
+  "pandas": "3.1.1",
+  "pyarrow": "26.0.1",
+  "numpy": "2.5.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "columns_loaded": [
+    "month",
+    "day",
+    "pdays",
+    "previous",
+    "poutcome"
+  ],
+  "target_column_loaded": false,
+  "thresholds": {
+    "C3_max_runs": 60,
+    "C5_min_share": 0.99
+  },
+  "checks": {
+    "C1": {
+      "status": "DOCUMENTARY-PASS",
+      "evidence": "documentary",
+      "detail": "HF build script has no sort/reorder call"
+    },
+    "C2": {
+      "status": "PASS",
+      "evidence": "empirical",
+      "detail": "45211 rows x 17 columns; names match=True"
+    },
+    "C3": {
+      "status": "PASS",
+      "evidence": "empirical",
+      "observed_runs": 30,
+      "max_runs": 60,
+      "random_reference_runs": 37710.97
+    },
+    "C4": {
+      "status": "INCONCLUSIVE",
+      "evidence": "empirical",
+      "violations": 1,
+      "reversals": 0,
+      "skips": 1,
+      "unresolved_skips": 1,
+      "detail": [
+        {
+          "from_block": 4,
+          "to_block": 5,
+          "from_month": "aug",
+          "to_month": "oct",
+          "delta_mod12": 2,
+          "classification": "skip",
+          "skipped_month_codes": [
+            8
+          ],
+          "skipped_months": [
+            "sep"
+          ],
+          "skipped_months_zero_contact_globally": false,
+          "valid": false
+        }
+      ]
+    },
+    "C5": {
+      "status": "PASS",
+      "evidence": "empirical",
+      "pooled_share": 1.0,
+      "min_share": 0.99,
+      "random_reference_share": 0.518455
+    },
+    "C6": {
+      "status": "PASS",
+      "evidence": "empirical",
+      "detail": "pdays==-1: 0; pdays==999: 36954; previous==0: 36954; masks identical: True; poutcome==4: 0"
+    },
+    "C7": {
+      "status": "LIMITATION",
+      "evidence": "unresolved",
+      "detail": "no year variable; Dec-Jan boundaries cannot be dated"
+    }
+  },
+  "verdict": "INCONCLUSIVE",
+  "split_created": false,
+  "stop_and_review": true
+}

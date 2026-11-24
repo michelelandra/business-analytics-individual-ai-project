@@ -1,0 +1,19 @@
+Command: uv run python -m my_analysis.guided_test_evaluate --mode preflight
+Working directory: C:\Users\alber\OneDrive\Documenti\my-analysis
+Date (UTC): 2026-11-14
+Stage: preflight gate re-run before the one-shot gated test evaluation
+Script: src/my_analysis/guided_test_evaluate.py
+Script SHA-256: 2ac3a3eac188254343bc0f63fd284a29de348a7dd078a19be8d01868e666ba36
+Exit code: 0
+
+--- console output ---
+[preflight] model A: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model B: C=0.01 max|diff|=0.000e+00 pass=True
+[preflight] model C: C=0.001 max|diff|=0.000e+00 pass=True
+[preflight] ALL CHECKS PASSED. Test mode was NOT executed.
+
+--- notes ---
+- Preflight re-run explicitly before the gated test evaluation, per the
+  authorisation conditions. Test labels were not read in this mode.
+- No hyperparameter, feature or preprocessing change was made; the script
+  SHA-256 matches the value recorded in the previous preflight report.

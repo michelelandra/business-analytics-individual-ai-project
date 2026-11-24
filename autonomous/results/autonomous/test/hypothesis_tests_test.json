@@ -1,0 +1,41 @@
+{
+  "evaluation_set": "test (frozen split [38428, 45211))",
+  "n": 6783,
+  "n_boot": 2000,
+  "seed": 42,
+  "method": "paired bootstrap over test rows; percentile 95% CI; identical resample indices reused across models and metrics",
+  "comparisons": {
+    "B-A": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.03019680943977132,
+      "delta_roc_auc_ci95": [
+        0.02608477195825771,
+        0.03426655663048662
+      ],
+      "delta_pr_auc_point": 0.02917629564410079,
+      "delta_pr_auc_ci95": [
+        0.024286032131931503,
+        0.03423888328606934
+      ]
+    },
+    "C-B": {
+      "n_valid_resamples": 2000,
+      "resamples_skipped_single_class": 0,
+      "delta_roc_auc_point": 0.18154414474112013,
+      "delta_roc_auc_ci95": [
+        0.16662134804874468,
+        0.1963521620346281
+      ],
+      "delta_pr_auc_point": 0.15684749180337781,
+      "delta_pr_auc_ci95": [
+        0.13506014022193008,
+        0.17741994266586014
+      ]
+    }
+  },
+  "materiality_threshold_delta_auc": 0.01,
+  "leakage_diagnostic_threshold_delta_auc_C_minus_B": 0.05,
+  "H1_classification": "H0 rejected, materially relevant",
+  "note": "Model C is a leakage diagnostic only and is never operational."
+}

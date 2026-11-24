@@ -1,0 +1,239 @@
+{
+  "run_mode": "guided",
+  "stage": "train + validation only",
+  "script": "src/my_analysis/guided_train_validate.py",
+  "generated_utc": "2026-11-13T19:30:11+00:00",
+  "command": "uv run python -m my_analysis.guided_train_validate",
+  "plan_version": "1.2",
+  "split_plan_version": "1.1",
+  "split_plan_version_note": "The frozen split file records the plan version in force when it was created (v1.1). The feature sets, preprocessing and metric definitions executed here follow plan.md v1.2.",
+  "dataset": {
+    "path": "data/raw/train-00000-of-00001-f26fa3adaf6dfdf2.parquet",
+    "sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f",
+    "n_rows": 45211
+  },
+  "split": {
+    "path": "results/splits/temporal_split_v1.json",
+    "sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+    "sizes": {
+      "train": 31647,
+      "validation": 6781,
+      "test": 6783
+    },
+    "test_rows_used": 0,
+    "test_labels_inspected": false
+  },
+  "row_counts": {
+    "total": 45211,
+    "train": 31647,
+    "validation": 6781,
+    "test_not_used": 6783,
+    "filters_applied": [],
+    "rows_dropped": 0
+  },
+  "derived": {
+    "poutcome_never_contacted": 36954,
+    "poutcome_unknown_anomalies": 5,
+    "rule": "poutcome_derived = 'never_contacted' if pdays == 999 else poutcome label"
+  },
+  "feature_sets": {
+    "A": {
+      "role": "customer characteristics only",
+      "numeric": [
+        "age",
+        "balance"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan"
+      ],
+      "n_input_columns": 8
+    },
+    "B": {
+      "role": "A + previous-campaign information",
+      "numeric": [
+        "age",
+        "balance",
+        "previous"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ],
+      "n_input_columns": 10
+    },
+    "C": {
+      "role": "diagnostic - leakage (B + duration); NOT deployable",
+      "numeric": [
+        "age",
+        "balance",
+        "previous",
+        "duration"
+      ],
+      "categorical": [
+        "job",
+        "marital",
+        "education",
+        "default",
+        "housing",
+        "loan",
+        "poutcome_derived"
+      ],
+      "n_input_columns": 11
+    }
+  },
+  "excluded_from_all_models": [
+    "pdays",
+    "was_contacted_prev",
+    "days_since_prev",
+    "campaign",
+    "contact",
+    "day",
+    "month"
+  ],
+  "preprocessing": {
+    "numeric": {
+      "transformer": "StandardScaler",
+      "params": {
+        "with_mean": true,
+        "with_std": true
+      }
+    },
+    "categorical": {
+      "transformer": "OneHotEncoder",
+      "params": {
+        "handle_unknown": "ignore",
+        "sparse_output": true,
+        "dtype": "float64"
+      }
+    },
+    "remainder": "drop",
+    "fitted_on": "training block only (and inside each CV fold)"
+  },
+  "preprocessing_spec_sha256": "73887c4654f695cd103475530400af074419b8d2b2b3c44291bd4ffe4ee8c7b9",
+  "model_spec": {
+    "estimator": "LogisticRegression",
+    "penalty": "l2",
+    "solver": "lbfgs",
+    "max_iter": 1000,
+    "class_weight": null,
+    "random_state": 42,
+    "C_grid": [
+      0.001,
+      0.003,
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "selection_metric": "mean CV ROC-AUC (expanding-window TimeSeriesSplit)"
+  },
+  "model_spec_sha256": "8cf068eb790878acabe5a4a76b889e3e819ad10e8061e43e494f2b355cfa9f59",
+  "cv": {
+    "splitter": "TimeSeriesSplit (expanding window)",
+    "n_splits": 5,
+    "folds": [
+      {
+        "fold": 1,
+        "train_n": 5277,
+        "valid_n": 5274
+      },
+      {
+        "fold": 2,
+        "train_n": 10551,
+        "valid_n": 5274
+      },
+      {
+        "fold": 3,
+        "train_n": 15825,
+        "valid_n": 5274
+      },
+      {
+        "fold": 4,
+        "train_n": 21099,
+        "valid_n": 5274
+      },
+      {
+        "fold": 5,
+        "train_n": 26373,
+        "valid_n": 5274
+      }
+    ],
+    "fitted_on": "training block only"
+  },
+  "selected_hyperparameters": {
+    "A": {
+      "C": 0.01,
+      "cv_roc_auc_mean": 0.5647482833554879,
+      "n_fits": 9
+    },
+    "B": {
+      "C": 0.01,
+      "cv_roc_auc_mean": 0.567769439442778,
+      "n_fits": 9
+    },
+    "C": {
+      "C": 0.001,
+      "cv_roc_auc_mean": 0.9072556017021451,
+      "n_fits": 9
+    }
+  },
+  "metrics": {
+    "A": {
+      "roc_auc": 0.6403399647067369,
+      "average_precision": 0.20840129342966013,
+      "ap_no_skill": 0.11502728211178292,
+      "brier": 0.10387433447017923,
+      "lift": 2.3208550790409195
+    },
+    "B": {
+      "roc_auc": 0.6595350561231248,
+      "average_precision": 0.228794684830157,
+      "ap_no_skill": 0.11502728211178292,
+      "brier": 0.10381795657395584,
+      "lift": 2.4747239240602075
+    },
+    "C": {
+      "roc_auc": 0.8683653151825123,
+      "average_precision": 0.4727607524068474,
+      "ap_no_skill": 0.11502728211178292,
+      "brier": 0.09005937589576476,
+      "lift": 4.641710158081839
+    }
+  },
+  "lift_definition": {
+    "fraction": 0.1,
+    "k_rule": "floor(0.10 * n_validation)",
+    "ranking": "stable descending sort of predicted probability",
+    "formula": "precision@k / prevalence"
+  },
+  "artifacts": {
+    "validation_metrics.csv": "93507180a0136171cc92f48cb285f12222cdb9e292d28555abe2688a32c4cc60",
+    "hyperparameter_selection.csv": "79760759f5e461927075f635720689660c65a9f33e887647fb4f083613d520ca",
+    "validation_predictions.csv": "f4197e99aa802eac3306b909dcdb587c08baa646b8a73427581d4e1864e57610",
+    "calibration_deciles.csv": "77596fce0550cfeb2830a28eb33c28dc63c405788fab2659c1a4ff97829444c7",
+    "model_coefficients.csv": "e3b99deba5ac414c33820ce41631f81105cdb4550079426457a2149566d5d6eb"
+  },
+  "versions": {
+    "python": "3.13.5",
+    "scikit-learn": "1.9.1",
+    "pandas": "3.1.1",
+    "numpy": "2.5.4",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "seed": 42,
+  "test_evaluated": false,
+  "refit_on_train_plus_validation": false
+}

@@ -1,0 +1,141 @@
+{
+ "phase": "Phase A - frozen Guided pipeline export",
+ "generated_utc": "2026-11-16T17:28:06+00:00",
+ "status": "exported after validation reproduction passed",
+ "purpose": "Post-test usability artifact: make the already evaluated Guided Models A and B loadable for inference without retraining. Not a new experiment.",
+ "post_test_reconstruction": true,
+ "originally_serialized_models": false,
+ "test_labels_read": false,
+ "test_metrics_computed": false,
+ "model_c_trained": false,
+ "hyperparameter_search_performed": false,
+ "existing_files_modified": false,
+ "training_block": "chronological rows [0, 31647): frozen train block only. The validation block was used for verification, never for fitting.",
+ "dataset": {
+  "path": "data/raw/train-00000-of-00001-f26fa3adaf6dfdf2.parquet",
+  "sha256": "0cd36af11a3097b2a069dd171a2957c955665d2ad7b12973f124d69d444bf45f"
+ },
+ "split": {
+  "path": "results/splits/temporal_split_v1.json",
+  "canonical_sha256": "d42842488f79b77b4060e6e0858139a4d41c94e622447aed8a22769678bbfe5c",
+  "sizes": {
+   "train": 31647,
+   "validation": 6781,
+   "test": 6783
+  }
+ },
+ "training_indices": {
+  "n": 31647,
+  "first": 0,
+  "last": 31646,
+  "contiguous_from_zero": true,
+  "sha256": "b28138b83e1b81a4367c73a9c81cea0a41fc6de6ed984b58c97f4b84493bcc12",
+  "hash_method": "sha256 of json.dumps(indices, separators=(',',':')) as UTF-8"
+ },
+ "model_spec": {
+  "estimator": "LogisticRegression",
+  "penalty": "l2",
+  "solver": "lbfgs",
+  "max_iter": 1000,
+  "class_weight": null,
+  "random_state": 42,
+  "C": {
+   "A": 0.01,
+   "B": 0.01
+  },
+  "source": "my_analysis.guided_test_evaluate.build_pipeline (imported, not rewritten)"
+ },
+ "pipeline_spec": {
+  "steps": [
+   "prep",
+   "clf"
+  ],
+  "numeric": {
+   "transformer": "StandardScaler",
+   "with_mean": true,
+   "with_std": true
+  },
+  "categorical": {
+   "transformer": "OneHotEncoder",
+   "handle_unknown": "ignore",
+   "sparse_output": true,
+   "dtype": "float64"
+  },
+  "remainder": "drop",
+  "derived_column": "poutcome_derived = 'never_contacted' when pdays == 999 else poutcome"
+ },
+ "feature_sets": {
+  "A": {
+   "role": "customer characteristics only",
+   "numeric": [
+    "age",
+    "balance"
+   ],
+   "categorical": [
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan"
+   ]
+  },
+  "B": {
+   "role": "A + previous-campaign information",
+   "numeric": [
+    "age",
+    "balance",
+    "previous"
+   ],
+   "categorical": [
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan",
+    "poutcome_derived"
+   ]
+  }
+ },
+ "selected_C": {
+  "A": 0.01,
+  "B": 0.01
+ },
+ "validation_check": {
+  "predictions_file": "results/guided/validation_predictions.csv",
+  "predictions_sha256": "f4197e99aa802eac3306b909dcdb587c08baa646b8a73427581d4e1864e57610",
+  "n_rows": 6781,
+  "tolerance": 1e-12,
+  "max_abs_diff": {
+   "A": 0.0,
+   "B": 0.0
+  },
+  "passed": true
+ },
+ "artifacts": {
+  "models/A.joblib": {
+   "sha256": "cab4df0760ea73ed27b759d23d13f3a027d27ebe750278a4a2521007eaa056d6",
+   "bytes": 4849
+  },
+  "models/B.joblib": {
+   "sha256": "403b16b6febe9f3b2bd627934d3afce136ddc3e94efe13c90a0046e9e1fd40a3",
+   "bytes": 5153
+  }
+ },
+ "versions": {
+  "python": "3.13.5",
+  "scikit-learn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.1",
+  "joblib": "1.6.0",
+  "platform": "Windows-11-10.0.26200-SP0"
+ },
+ "notes": [
+  "Pipelines were reconstructed from the frozen settings because the original run did not serialise models.",
+  "Agreement is with the saved validation predictions, not with the test block.",
+  "Model C is a non-deployable leakage diagnostic and was not trained.",
+  "Loading a joblib file requires a compatible scikit-learn version; see versions.",
+  "No inference interface or input-schema helper is included in this phase."
+ ]
+}
